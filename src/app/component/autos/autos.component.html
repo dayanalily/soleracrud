@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-6 mt-3 ml-3" *ngFor="let item of auto; let i = index">
+    <div class="card" style="width: 18rem;" *ngIf="!editarTex">
+      <div class="card-body">
+        <h5 class="card-title"> {{item.titel}}</h5>
+        <p class="card-text">
+          {{item.text}}
+        </p>
+        <a href="#" (click)="editar(item)" class="card-link">Editar</a>
+        <a href="#" (click)="eliminar(item)" class="card-link">Eliminar</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12" *ngIf="editarTex">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <form [formGroup]="formAutos" class="m-login__form m-form" novalidate>
+          <input type="text" class="w-100" formControlName="titel" />
+          <p class="card-text">
+            <input type="text" class="w-100" formControlName="text" />
+          </p>
+        </form>
+        <a href="#" (click)="confirmarEditar(item)" class="card-link">Editar</a>
+
+      </div>
+    </div>
+  </div>
+</div>
